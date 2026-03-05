@@ -6,6 +6,6 @@
     { "source": "Was bedeutet ...?", "target": "¿Qué significa ...?" },
     { "source": "Woher kommst du?", "target": "¿De dónde eres?" },
     { "source": "Wie lautet deine Telefonnummer?", "target": "¿Cuál es tu número de teléfono?" },
-    { "source": "Wie lautet deine Email adresse?", "target": "¿Cuál es tu correo electrónico?" }
+    { "source": "Wie lautet deine Emailadresse?", "target": "¿Cuál es tu correo electrónico?" }
   ]
 }
