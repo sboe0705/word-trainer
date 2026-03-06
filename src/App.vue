@@ -3,7 +3,7 @@ import Lesson from './components/Lesson.vue'
 </script>
 
 <template>
-  <Lesson msg="Vokabeln" />
+  <Lesson msg="Vokabeln" :maxCount="6" />
 </template>
 
 <style scoped>
