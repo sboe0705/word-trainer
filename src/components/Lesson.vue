@@ -13,7 +13,7 @@ const file = 'de_es.json'
 const vocabulary = ref(null)
 
 onMounted(async () => {
-  const response = await fetch(baseUrl + "/" + file)
+  const response = await fetch(baseUrl + file)
   vocabulary.value = await response.json()
 })
 </script>
