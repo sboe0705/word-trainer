@@ -17,9 +17,9 @@ jobs:
       - name: Build
         run: npm run build
       - name: Create zip file
-        run: zip -r word-trainer.zip dist
+        run: zip -r word-trainer.zip dist/*
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: word-trainer/dist
+          name: word-trainer
           path: word-trainer.zip
