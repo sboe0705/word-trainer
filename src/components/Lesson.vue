@@ -8,11 +8,12 @@ defineProps({
   msg: String,
 })
 
+const baseUrl = import.meta.env.BASE_URL
 const file = 'de_es.json'
 const vocabulary = ref(null)
 
 onMounted(async () => {
-  const response = await fetch('/' + file)
+  const response = await fetch(baseUrl + "/" + file)
   vocabulary.value = await response.json()
 })
 </script>
