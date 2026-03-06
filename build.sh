@@ -2,7 +2,7 @@
 npm run build
 if [ -d ../sboe0705.github.io ]; then
   rm -rf ../sboe0705.github.io/word-trainer/* && \
-  mv -f dist/* ../sboe0705.github.io/word-trainer/ && \
+  cp -rf dist/* ../sboe0705.github.io/word-trainer/ && \
   (
     cd ../sboe0705.github.io && \
     git add word-trainer/* && \
