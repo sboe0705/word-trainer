@@ -1,0 +1,19 @@
+{
+  "sourceLang": "Deutsch",
+  "targetLang": "Français",
+  "words": [
+    { "source": "kaputt", "target": "cassé" },
+    { "source": "heute", "target": "aujourd'hui" },
+    { "source": "kaufen", "target": "acheter" },
+    { "source": "während", "target": "pendant" },
+    { "source": "spielen", "target": "jouer" },
+    { "source": "Spieler", "target": "joueur" },
+    { "source": "endlich", "target": "enfin" },
+    { "source": "jemand", "target": "quelqu'un" },
+    { "source": "welcher/welche", "target": "quel/quelle" },
+    { "source": "Hör auf!", "target": "Arrête!" },
+    { "source": "links", "target": "à gauche" },
+    { "source": "rechts", "target": "à droite" },
+    { "source": "essen", "target": "essen" }
+  ]
+}
