@@ -6,6 +6,27 @@
     { "source": "Was bedeutet ...?", "target": "¿Qué significa ...?" },
     { "source": "Woher kommst du?", "target": "¿De dónde eres?" },
     { "source": "Wie lautet deine Telefonnummer?", "target": "¿Cuál es tu número de teléfono?" },
-    { "source": "Wie lautet deine Emailadresse?", "target": "¿Cuál es tu correo electrónico?" }
+    { "source": "Wie lautet deine Emailadresse?", "target": "¿Cuál es tu correo electrónico?" },
+    { "source": "Menschen", "target": "gente" },
+    { "source": "Paar", "target": "pareja" },
+    { "source": "Word", "target": "palabra" },
+    { "source": "nach einmal", "target": "otra vez" },
+    { "source": "Begrüßung", "target": "saludo" },
+    { "source": "Verabschiedung", "target": "despedida" },
+    { "source": "Großbuchstabe", "target": "mayúscula" },
+    { "source": "Kleinbuchstabe", "target": "minúscula" },
+    { "source": "Nachname", "target": "apellido" },
+    { "source": "schauen", "target": "mirar" },
+    { "source": "lesen", "target": "leer" },
+    { "source": "zusammen", "target": "juntos" },
+    { "source": "Bindestrich", "target": "guión" },
+    { "source": "Unterstrich", "target": "guión bajo" },
+    { "source": "@ (at)", "target": "arroba" },
+    { "source": "lernen", "target": "aprender" },
+    { "source": "Landschaft", "target": "paisaje" },
+    { "source": "Schriftsteller", "target": "escritor" },
+    { "source": "Frühstück", "target": "desayuno" },
+    { "source": "Kellner", "target": "camarero" },
+    { "source": "unhöflich", "target": "grosero" }
   ]
 }
