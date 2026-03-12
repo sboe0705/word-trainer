@@ -71,6 +71,7 @@ function onSourceClick(activeWord) {
   } else {
     activeSource.value = null
   }
+  checkPair(activeWord, null)
 }
 
 function onTargetClick(activeWord) {
@@ -85,6 +86,41 @@ function onTargetClick(activeWord) {
   } else {
     activeTarget.value = null
   }
+  checkPair(null, activeWord)
+}
+
+function checkPair(activeSourceWord, activeTargetWord) {
+  if (activeSourceWord == null && activeSource.value != null) {
+    activeSourceWord = activeWords.value[activeSource.value]
+  }
+  if (activeTargetWord == null && activeTarget.value != null) {
+    activeTargetWord = activeWords.value[activeTarget.value]
+  }
+  if (activeSource.value == null || activeTarget.value == null) {
+    return
+  }
+  if (mapping.value.get(activeSource.value) == activeTarget.value) {
+    onMatch(activeSourceWord, activeTargetWord)
+  } else {
+    onNoMatch(activeSourceWord, activeTargetWord)
+  }
+}
+
+function onMatch(activeSourceWord, activeTargetWord) {
+  activeSource.value = null
+  activeSourceWord.sourceActive = false
+  activeSourceWord.sourceRef = null
+  activeTarget.value = null
+  activeTargetWord.targetActive = false
+  activeTargetWord.targetRef = null
+  showNextWord()
+}
+
+function onNoMatch(activeSourceWord, activeTargetWord) {
+  activeSource.value = null
+  activeSourceWord.sourceActive = false
+  activeTarget.value = null
+  activeTargetWord.targetActive = false
 }
 </script>
 
