@@ -1,9 +1,12 @@
 <script setup>
 import Lesson from './components/Lesson.vue'
+
+const baseUrl = import.meta.env.BASE_URL
+const jsonFile = 'de_es.json'
 </script>
 
 <template>
-  <Lesson msg="Vokabeln" :maxCount="6" />
+  <Lesson :jsonUrl="baseUrl + jsonFile" :maxCount="6" />
 </template>
 
 <style scoped>

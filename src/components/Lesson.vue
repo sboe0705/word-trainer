@@ -5,7 +5,7 @@ import { useDisplay } from 'vuetify'
 const display = useDisplay()
 
 const props = defineProps({
-  msg: String,
+  jsonUrl: String,
   maxCount: Number,
 })
 
@@ -27,6 +27,21 @@ class Dictionary {
     this.targetLang = targetLang
     this.wordPairs = wordPairs
   }
+  size() {
+    return this.wordPairs.length
+  }
+  isEmpty() {
+    return this.size() == 0
+  }
+  popRandomWordPair() {
+    if (this.isEmpty()) {
+      return null
+    }
+    const randomIndex = Math.floor(Math.random() * this.wordPairs.length)
+    const wordPair = this.wordPairs[randomIndex]
+    this.wordPairs.splice(randomIndex, 1)
+    return wordPair
+  }
 }
 
 class JsonDictionary extends Dictionary {
@@ -38,9 +53,7 @@ class JsonDictionary extends Dictionary {
   }
 }
 
-const baseUrl = import.meta.env.BASE_URL
-const file = 'de_es.json'
-const vocabulary = ref(null)
+const dictionary = ref(null)
 const count = ref(null)
 const activeWords = ref([])
 const activeSource = ref(null)
@@ -49,12 +62,9 @@ const activeTarget = ref(null)
 const mapping = ref(new Map())
 
 onMounted(async () => {
-  const dictionary = JsonDictionary.create(baseUrl + file)
+  dictionary.value = await JsonDictionary.create(props.jsonUrl)
 
-  const response = await fetch(baseUrl + file)
-  vocabulary.value = await response.json()
-
-  count.value = Math.min(props.maxCount, vocabulary.value.words.length)
+  count.value = Math.min(props.maxCount, dictionary.value.size())
   initActiveWords(count.value)
   for (let i = 0; i < count.value; i++) {
     showNextWord()
@@ -75,15 +85,13 @@ function initActiveWords(count) {
 }
 
 function showNextWord() {
-  if (vocabulary.value.words.length > 0) {
-    const index = Math.floor(Math.random() * vocabulary.value.words.length)
-    var word = vocabulary.value.words[index]
-    vocabulary.value.words.splice(index, 1)
-    //activeWords.value.push(word)
+  if (!dictionary.value.isEmpty()) {
+    const wordPair = dictionary.value.popRandomWordPair();
+
     for (let i = 0; i < activeWords.value.length; i++) {
       if (activeWords.value[i].sourceRef == null) {
-        activeWords.value[i].sourceRef = word.source
-        activeWords.value[mapping.value.get(i)].targetRef = word.target
+        activeWords.value[i].sourceRef = wordPair.source
+        activeWords.value[mapping.value.get(i)].targetRef = wordPair.target
         break;
       }
     }
@@ -156,11 +164,10 @@ function onNoMatch(activeSourceWord, activeTargetWord) {
 </script>
 
 <template>
-  <h1 class="text-center">{{ msg }} {{ activeSource }}/{{ activeTarget }}</h1>
-  <v-container fluid v-if="vocabulary">
+  <v-container fluid>
     <v-row>
       <v-col cols="12" class="text-center">
-        <h2>{{ vocabulary.sourceLang }} - {{ vocabulary.targetLang }}</h2>
+        <h1>{{ dictionary.sourceLang }} - {{ dictionary.targetLang }}</h1>
       </v-col>
     </v-row>
     <v-row v-for="activeWord in activeWords">
