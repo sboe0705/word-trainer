@@ -27,6 +27,18 @@
     { "source": "Schriftsteller", "target": "escritor" },
     { "source": "Frühstück", "target": "desayuno" },
     { "source": "Kellner", "target": "camarero" },
-    { "source": "unhöflich", "target": "grosero" }
+    { "source": "unhöflich", "target": "grosero" },
+    { "source": "nachmittags", "target": "por la tarde" },
+    { "source": "reisen", "target": "viajar" },
+    { "source": "Geschäft", "target": "tienda" },
+    { "source": "Auto", "target": "choche" },
+    { "source": "Aufgabe", "target": "tarea" },
+    { "source": "also (Gesprächsmarker)", "target": "bueno" },
+    { "source": "also (logisch / zeitlich)", "target": "entonces" },
+    { "source": "Was bedeutet ...?", "target": "Que significa ...?" },
+    { "source": "Wie sagt man ... auf ...?", "target": "Como se dice ... en ...?" },
+    { "source": "Ich weiß nicht!", "target": "No se!" },
+    { "source": "auch nicht", "target": "tampoco" },
+    { "source": "Wie schreibt man ...?", "target": "Como se escribe ...?" }
   ]
 }
