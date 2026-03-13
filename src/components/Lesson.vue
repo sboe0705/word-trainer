@@ -9,6 +9,35 @@ const props = defineProps({
   maxCount: Number,
 })
 
+class WordPair {
+  constructor(source, target) {
+    this.source = source;
+    this.target = target;
+  }
+  getSource() { return this.source }
+  getTarget()  { return this.target }
+}
+
+class Dictionary {
+  constructor(sourceLang, targetLang, wordPairs) {
+    if (new.target === Dictionary) {
+      throw new Error("Dictionary is abstract and cannot be instantiated directly");
+    }
+    this.sourceLang = sourceLang
+    this.targetLang = targetLang
+    this.wordPairs = wordPairs
+  }
+}
+
+class JsonDictionary extends Dictionary {
+  static async create(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    const wordPairs = json.words.map(w => new WordPair(w.source, w.target));
+    return new JsonDictionary(json.sourceLang, json.targetLang, wordPairs);
+  }
+}
+
 const baseUrl = import.meta.env.BASE_URL
 const file = 'de_es.json'
 const vocabulary = ref(null)
@@ -20,6 +49,8 @@ const activeTarget = ref(null)
 const mapping = ref(new Map())
 
 onMounted(async () => {
+  const dictionary = JsonDictionary.create(baseUrl + file)
+
   const response = await fetch(baseUrl + file)
   vocabulary.value = await response.json()
 
