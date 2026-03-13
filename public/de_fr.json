@@ -14,6 +14,11 @@
     { "source": "Hör auf!", "target": "Arrête!" },
     { "source": "links", "target": "à gauche" },
     { "source": "rechts", "target": "à droite" },
-    { "source": "essen", "target": "essen" }
+    { "source": "Freitag", "target": "vendredi" },
+    { "source": "Samstag", "target": "samedi" },
+    { "source": "Sonntag", "target": "dimanche" },
+    { "source": "morgens", "target": "matin" },
+    { "source": "nachmittags", "target": "l'après-midi" },
+    { "source": "abends", "target": "soir" }
   ]
 }
